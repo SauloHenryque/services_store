@@ -1,6 +1,6 @@
-# **Descrição:** Deleta uma loja a partir do seu código de identificação.
+# **Descrição:** Deleta uma store a partir do seu código de identificação.
 
-**Description (en-US):** Delete an loja by the identifier code
+**Description (en-US):** Delete an store by the identifier code
 
 ## **Arquitetura**
 
