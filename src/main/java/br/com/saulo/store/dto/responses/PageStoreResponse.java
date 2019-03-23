@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 
 @NoArgsConstructor
-@ApiModel(description = "{{{page_store_response_description}}}", discriminator = "{{{page_store_response_discriminator}}}")
+@ApiModel(description = "Response Store", discriminator = "Response Store")
 public class PageStoreResponse extends PageStore<StoreResponse> implements Serializable {
 
     private static final long serialVersionUID = -4679776107027097057L;

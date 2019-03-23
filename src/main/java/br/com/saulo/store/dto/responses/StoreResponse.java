@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-@ApiModel(description = "{{{store_response_description}}}")
+@ApiModel(description = "Response Store")
 public class StoreResponse implements Serializable{
 
 	private static final long serialVersionUID = 4192610937139207457L;
@@ -17,18 +17,18 @@ public class StoreResponse implements Serializable{
 	/**
      * Código de Identificação.
      */
-    @ApiModelProperty(value = "{{{store_response_id_value}}}", position = 1)
+    @ApiModelProperty(value = "Identificação da Store", position = 1)
     private Long id;
 
     /**
      * Nome da store.
      */
-    @ApiModelProperty(value = "{{{store_response_nome_value}}}", position = 2)
+    @ApiModelProperty(value = "Nome da Store", position = 2)
     private String nome;
     
     /**
      * Response cnpj
      */
-    @ApiModelProperty(value = "{{{store_response_cnpj_value}}}", position = 3)
+    @ApiModelProperty(value = "CNPJ da Store", position = 3)
     private String cnpj;
 }
