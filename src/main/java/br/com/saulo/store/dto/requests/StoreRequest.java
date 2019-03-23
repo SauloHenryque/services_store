@@ -20,7 +20,7 @@ public class StoreRequest implements Serializable{
 	 @ApiModelProperty(value = "{{{store_request_nome_value}}}", position = 2)
 	 private String nome;
 	 
-	 @ApiModelProperty(value = "{{{store_request_cnpja_value}}}", position = 3)
+	 @ApiModelProperty(value = "{{{store_request_cnpj_value}}}", position = 3)
 	 private String cnpj;
 
 }
