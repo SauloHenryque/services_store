@@ -40,14 +40,14 @@ public class StoreResource {
 	    }
 		
 		@GetMapping
-	    public ResponseEntity<?> listar(StoreRequest lojaRequest) {
+	    public ResponseEntity<?> listar(@Valid StoreRequest lojaRequest) {
 			
 			StoreEntidade lojaEntidade = GenericConvert.convertModelMapper(lojaRequest, StoreEntidade.class);	
 			return ResponseEntity.status(HttpStatus.OK).body(lojaServico.listarStore(lojaEntidade));
 	    }
 		
 		@PutMapping("/{id}")
-	    public ResponseEntity<?> atualizar(@PathVariable("id") long id, @RequestBody StorePersist request ) {
+	    public ResponseEntity<?> atualizar(@PathVariable("id") long id, @RequestBody @Valid StorePersist request ) {
 			
 			StoreEntidade lojaEntidade 	= GenericConvert.convertModelMapper(request, StoreEntidade.class);
 			lojaEntidade.setId(id);

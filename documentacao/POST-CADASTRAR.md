@@ -82,6 +82,7 @@
 | Service | Quando cadastra store com nome de uma store já registrado | 400 | Bad Request |
 | Service | Quando cadastra store com cnpj de uma store já registrado | 400 | Bad Request |
 | DTO | Quando a quantidade de caracteres do atributo cnpj for maior que 14 |  400 | Bad Request |
+| DTO | Quando a quantidade de caracteres do atributo nome for maior que 255 |  400 | Bad Request |
 | DTO | Quando o atributo nome não existir | 400 | Bad Request |
 | DTO | Quando o atributo cnpj não existir | 400 | Bad Request |
 
