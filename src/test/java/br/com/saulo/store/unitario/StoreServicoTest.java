@@ -112,7 +112,7 @@ public class StoreServicoTest {
          TestCase.assertEquals(storeEntidade.getId(), storeEntidadeAtualizado.getId());
     }
     
-    @Test(expected = BadRequestException.class)
+    @Test(expected = NotFoundException.class)
     public void atualizarStoreNaoEncontrado(){
    	 
    	 	StoreEntidade	storeEntidadeNovo		 = new StoreEntidade();
@@ -202,9 +202,9 @@ public class StoreServicoTest {
     	 	
         Mockito.when(storeRepositorio.findAll(Example.of(storeEntidadeNovo))).thenReturn(listaStoreEntidade);
     	 
-        List<StoreEntidade> pageBinVirtual = storeServicoMock.listarStore(storeEntidade);
+        List<StoreEntidade> listStoreEntidade = storeServicoMock.listarStore(storeEntidade);
        
-    	assertNotNull(pageBinVirtual);
+    	assertNotNull(listStoreEntidade);
         
 
     }
