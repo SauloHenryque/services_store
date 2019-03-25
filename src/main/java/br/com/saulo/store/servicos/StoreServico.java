@@ -69,9 +69,10 @@ public class StoreServico {
 	 */
 	public StoreEntidade atualizarStore(StoreEntidade storeEntidade) {
 		
+		
 		checkThrow(!storeRepositorio.existsById(storeEntidade.getId()), REGISTRO_NAO_ENCONTRADO);
-		checkThrow(storeRepositorio.existsByNome(storeEntidade.getNome()), NOME_JA_CADASTRADO);
-		checkThrow(storeRepositorio.existsByCnpj(storeEntidade.getCnpj()), CNPJ_JA_CADASTRADO);
+		checkThrow(storeRepositorio.existsByNomeAndIdNotIn(storeEntidade.getNome(), storeEntidade.getId()), NOME_JA_CADASTRADO);
+		checkThrow(storeRepositorio.existsByCnpjAndIdNotIn(storeEntidade.getCnpj(), storeEntidade.getId()), CNPJ_JA_CADASTRADO);
 		 
 		return storeRepositorio.save(storeEntidade);
 	} 
