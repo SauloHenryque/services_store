@@ -1,5 +1,11 @@
 package br.com.saulo.store.servicos;
 
+import static br.com.saulo.store.exception.ExceptionOrder.checkThrow;
+import static br.com.saulo.store.exception.ExceptionsMessagesEnum.REGISTRO_NAO_ENCONTRADO;
+import static br.com.saulo.store.exception.ExceptionsMessagesEnum.NOME_JA_CADASTRADO;
+import static br.com.saulo.store.exception.ExceptionsMessagesEnum.CNPJ_JA_CADASTRADO;
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +51,8 @@ public class StoreServico {
 	 */
 	public StoreEntidade salvarStore(StoreEntidade storeEntidade) {
 		
+		checkThrow(storeRepositorio.existsByNome(storeEntidade.getNome()), NOME_JA_CADASTRADO);
+		checkThrow(storeRepositorio.existsByCnpj(storeEntidade.getCnpj()), CNPJ_JA_CADASTRADO);
         return storeRepositorio.save(storeEntidade);
 
 	}
@@ -61,6 +69,10 @@ public class StoreServico {
 	 */
 	public StoreEntidade atualizarStore(StoreEntidade storeEntidade) {
 		
+		checkThrow(!storeRepositorio.existsById(storeEntidade.getId()), REGISTRO_NAO_ENCONTRADO);
+		checkThrow(storeRepositorio.existsByNome(storeEntidade.getNome()), NOME_JA_CADASTRADO);
+		checkThrow(storeRepositorio.existsByCnpj(storeEntidade.getCnpj()), CNPJ_JA_CADASTRADO);
+		 
 		return storeRepositorio.save(storeEntidade);
 	} 
 	
@@ -74,6 +86,7 @@ public class StoreServico {
 	 */
     public void deletarStore(long id) {
     	
+		checkThrow(!storeRepositorio.existsById(id), REGISTRO_NAO_ENCONTRADO);
     	StoreEntidade storeEntidade = storeRepositorio.findById(id);
     	storeRepositorio.delete(storeEntidade);
     }

@@ -10,4 +10,8 @@ public interface StoreRepositorio extends JpaRepository<StoreEntidade, Long> {
 
 	StoreEntidade findById(long id);
 
+	boolean existsByNome(String nome);
+
+	boolean existsByCnpj(String cnpj);
+
 }
