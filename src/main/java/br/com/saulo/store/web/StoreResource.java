@@ -21,9 +21,11 @@ import br.com.saulo.store.dto.responses.StoreResponse;
 import br.com.saulo.store.entidades.StoreEntidade;
 import br.com.saulo.store.servicos.StoreServico;
 import br.com.saulo.store.ultil.GenericConvert;
+import io.swagger.annotations.Api;
 
 @RestController
-@RequestMapping(value = "/store", produces = MediaType.APPLICATION_JSON_VALUE)
+@Api(tags = "store")
+@RequestMapping(value = "/api/store", produces = MediaType.APPLICATION_JSON_VALUE)
 public class StoreResource {
 	
 	 	@Autowired
